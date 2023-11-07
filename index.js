@@ -30,6 +30,13 @@ async function run() {
 
 const FoodCollection = client.db('FlavourFusion').collection('AllFood')
 
+app.get('/allFoods', async(req,res) =>{
+    const cursor = FoodCollection.find();
+    const result = await cursor.toArray();
+    res.send(result)
+})
+
+
 
     // Send a ping to confirm a successful connection
     await client.db("admin").command({ ping: 1 });
