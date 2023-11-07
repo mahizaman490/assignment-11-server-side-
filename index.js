@@ -48,6 +48,12 @@ app.get('/addafooditem',async(req,res)=>{
     const result = await cursor.toArray()
     res.send(result)
 })
+app.get('/addafooditem/:id', async(req,res)=>{
+  const id = req.params.id;
+  const query = {_id: new ObjectId(id)}
+const result = await myAddedItems.findOne(query)
+res.send(result)
+})
 
 app.post('/addafooditem',async(req,res)=>{
     const newFood = req.body;
@@ -57,6 +63,52 @@ app.post('/addafooditem',async(req,res)=>{
 res.send(result)
 
 })
+
+
+
+
+
+
+app.put('/addafooditem/:id', async(req,res) =>{
+    const id = req.params.id;
+    const filter = {_id: new ObjectId(id)}
+    const options = {upsert: true }; 
+    const updatedfood = req.body;
+    const food= {
+      $set: {
+        Food_name:updatedfood.Food_name,
+        price:updatedfood.price,
+        quantity:updatedfood.quantity,
+        Food_image:updatedfood.Food_image,
+        price:updatedfood.price,
+        Food_category:updatedfood.Food_category,
+        Food_origin:updatedfood.Food_origin,
+        description:updatedfood.description
+
+      }
+  
+    }
+  
+    const result = await myAddedItems.updateOne(filter, food,options);
+    res.send(result)
+  })
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
