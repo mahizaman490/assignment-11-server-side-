@@ -58,10 +58,6 @@ res.send(result)
 
 
 
-
-
-
-
 app.post('/addafooditem',async(req,res)=>{
     const newFood = req.body;
     console.log(newFood);
@@ -70,7 +66,7 @@ app.post('/addafooditem',async(req,res)=>{
 res.send(result)
 
 })
-
+//////////////////////
 
 
 //my orders collections
