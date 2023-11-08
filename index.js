@@ -69,6 +69,14 @@ res.send(result)
 
 //my orders collections
 
+
+
+app.get('/myorders',async (req,res) => {
+  const result = await MyOrdersCollection.find().toArray();
+res.send(result)
+
+})
+
 app.post('/myorders',async (req,res)=>{
   const myorder = req.body;
   console.log(myorder);
