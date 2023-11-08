@@ -56,6 +56,12 @@ const result = await myAddedItems.findOne(query)
 res.send(result)
 })
 
+
+
+
+
+
+
 app.post('/addafooditem',async(req,res)=>{
     const newFood = req.body;
     console.log(newFood);
