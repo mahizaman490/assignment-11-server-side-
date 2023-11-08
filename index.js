@@ -67,6 +67,22 @@ res.send(result)
 
 
 
+//my orders collections
+
+app.post('/myorders',async (req,res)=>{
+  const myorder = req.body;
+  console.log(myorder);
+  const result = await MyOrdersCollection.insertOne(myorder);
+  res.send(result)
+})
+
+
+
+
+
+
+
+
 
 
 
