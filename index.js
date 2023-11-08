@@ -30,6 +30,7 @@ async function run() {
 
 const FoodCollection = client.db('FlavourFusion').collection('AllFood')
 const myAddedItems = client.db('FlavourFusion').collection('myAddedFoodItems'); 
+const MyOrdersCollection = client.db('FlavourFusion').collection('MyOrders');
 app.get('/allFoods', async(req,res) =>{
     const cursor = FoodCollection.find();
     const result = await cursor.toArray();
